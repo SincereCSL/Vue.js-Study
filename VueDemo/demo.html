@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue练习</title>
+</head>
+<body>
+<div id="app">
+    {{msg}}
+    <div>
+        <input type="text" v-model="info">
+        <button @click="handleClick">添加</button>
+    </div>
+    <ul>
+        <!--<li v-for="item in list">{{item}}</li>-->
+        <todo-item v-for="item in list" :item="item"></todo-item>
+    </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="application/javascript">
+    Vue.component('todo-item',{
+        props:['item'],
+        template:'<li>{{item}}</li> '
+    });
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                msg: "this is vue",
+                info: '',
+                list: [],
+            }
+        },
+        methods: {
+            handleClick() {
+                this.list.push(this.info);
+                this.info = ''
+            }
+        }
+
+    })
+</script>
+</body>
+</html>
