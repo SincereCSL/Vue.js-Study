@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js 钩子函数</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app"  v-runoob:hello.a.b="message">
+</div>
+
+<script>
+    Vue.directive('runoob', {
+        bind: function (el, binding, vnode) {
+            var s = JSON.stringify;
+            el.innerHTML =
+                'name: '       + s(binding.name) + '<br>' +
+                'value: '      + s(binding.value) + '<br>' +
+                'expression: ' + s(binding.expression) + '<br>' +
+                'argument: '   + s(binding.arg) + '<br>' +
+                'modifiers: '  + s(binding.modifiers) + '<br>' +
+                'vnode keys: ' + Object.keys(vnode).join(', ')
+        }
+    });
+    new Vue({
+        el: '#app',
+        data: {
+            message: '温习vue.js!'
+        }
+    });
+</script>
+</body>
+</html>
