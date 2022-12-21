@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck":true,//解决打包报 `vue-tsc --noEmit && vite build` 的错，忽略所有的声明文件（*.d.ts）的类型检查
+    "lib": ["esnext", "dom"],
+    "baseUrl": ".",
+    "paths": {
+        "@/*": [
+            "src/*"
+        ]
+    }
+  },
+  // ts 排除文件
+  "exclude": ["node_modules"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
