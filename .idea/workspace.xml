@@ -6,6 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="817ff557-8831-4111-8170-2517231242b6" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/Todolist.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/rate.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/pages/about.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/pages/home.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/store/ index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/vite.config.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1671587997020</updated>
       <workItem from="1671587998295" duration="1281000" />
-      <workItem from="1671589549131" duration="5670000" />
+      <workItem from="1671589549131" duration="5978000" />
     </task>
     <task id="LOCAL-00001" summary="update gitignore">
       <created>1671589838208</created>
@@ -88,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671592380765</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1671609529822</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671609529822</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
