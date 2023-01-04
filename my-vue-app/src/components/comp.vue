@@ -1,6 +1,6 @@
 <template>
   <div>
-      comp 
+    <!--      {{comp}} -->
   </div>
 </template>
 

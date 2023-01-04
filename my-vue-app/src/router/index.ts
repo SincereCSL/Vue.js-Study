@@ -3,7 +3,7 @@ const routes:Array<RouteRecordRaw> = [
     {
         path:'/',
         name:'home',
-        component:() => import('@/components/HelloWorld.vue')
+        component:() => import('@/views/home.vue')
     }
 ]
 //创建
