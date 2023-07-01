@@ -1,5 +1,5 @@
-const WebSocket = require('ws');
-
+const WebSocket = require("ws");
+// import { WebSocketServer } from 'ws';
 ;((Ws) => {
   const server = new Ws.Server({ port: 8000 });
   const init = () => {
@@ -14,25 +14,24 @@ const WebSocket = require('ws');
   }
 
   function handleOpen() {
-    console.log('-------')
-    console.log('WebSocket Open');
+    console.log("WebSocket Open");
   }
 
   function handleClose() {
-    console.log('WebSocket Close');
+    console.log("WebSocket Close");
   }
 
   function handleError() {
-    console.log('WebSocket Error');
+    console.log("WebSocket Error");
   }
 
   function handleConnection(ws) {
-    console.log('WebSocket Connection');
-    ws.on('message', handleMessage);
+    console.log("WebSocket Connection");
+    ws.on("message", handleMessage);
   }
 
   function handleMessage(msg) {
-    console.log(msg);
+    console.log("msg");
   }
 
   init();
