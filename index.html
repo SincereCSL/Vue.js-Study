@@ -41,36 +41,42 @@
 <body>
     <div class="container">
         <h1>233乐园项目</h1>
-        <p>正在跳转到233乐园项目，如果您没有被自动重定向，请<a href="./233park-web/index.html">点击这里</a>。</p>
-        <p><small>如果链接无效，请访问 <a href="https://sincerecsl.github.io/Vue.js-Study/233park-web/index.html">完整URL</a></small></p>
+        <p>正在跳转到233乐园项目，如果您没有被自动重定向，请<a href="./233park-web/">点击这里</a>。</p>
+        <p><small>如果链接无效，请访问 <a href="https://sincerecsl.github.io/Vue.js-Study/233park-web/">完整URL</a></small></p>
     </div>
     <script>
-        // 尝试多种可能的路径
-        const paths = [
-            './233park-web/',
-            './233park-web/index.html',
-            '/Vue.js-Study/233park-web/',
-            '/Vue.js-Study/233park-web/index.html'
-        ];
-        
-        // 检查页面是否存在，若存在则跳转
-        async function checkAndRedirect() {
-            for (const path of paths) {
-                try {
-                    const response = await fetch(path, { method: 'HEAD' });
-                    if (response.ok) {
-                        window.location.href = path;
-                        return;
+        // 如果当前不是部署域名的根目录，则跳转到完整URL
+        if (window.location.hostname === 'sincerecsl.github.io') {
+            const targetPath = '/Vue.js-Study/233park-web/';
+            // 如果当前路径已经是目标路径，则不进行跳转
+            if (!window.location.pathname.endsWith(targetPath) && 
+                !window.location.pathname.endsWith(targetPath + 'index.html')) {
+                window.location.href = targetPath;
+            }
+        } else {
+            // 本地开发环境或其他情况
+            const paths = [
+                './233park-web/',
+                './233park-web/index.html'
+            ];
+            
+            // 检查页面是否存在，若存在则跳转
+            async function checkAndRedirect() {
+                for (const path of paths) {
+                    try {
+                        const response = await fetch(path, { method: 'HEAD' });
+                        if (response.ok) {
+                            window.location.href = path;
+                            return;
+                        }
+                    } catch (e) {
+                        console.log(`Path ${path} not available`);
                     }
-                } catch (e) {
-                    console.log(`Path ${path} not available`);
                 }
             }
-            // 如果所有路径都无效，使用默认路径
-            window.location.href = paths[0];
+            
+            checkAndRedirect();
         }
-        
-        checkAndRedirect();
     </script>
 </body>
 </html> 

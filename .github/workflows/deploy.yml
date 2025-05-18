@@ -28,6 +28,7 @@ jobs:
         with:
           node-version: "18"
           cache: 'npm'
+          cache-dependency-path: '233park-web/package-lock.json'
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -37,6 +38,10 @@ jobs:
         
       - name: Build
         run: cd 233park-web && npm run build
+        
+      - name: Copy .nojekyll file
+        run: |
+          touch ./233park-web/dist/.nojekyll
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

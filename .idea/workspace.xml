@@ -4,32 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="817ff557-8831-4111-8170-2517231242b6" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/assets/CSS/common.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/components/menu.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/components/rate.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/layout/components/AppMain/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/layout/components/Navbar/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/layout/components/Settings/checkBoxList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/layout/components/Settings/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/layout/components/Sidebar/Item.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/layout/components/Sidebar/Link.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/layout/components/Sidebar/Logo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/layout/components/Sidebar/SidebarItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/layout/components/Sidebar/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/layout/components/TagsView/ScrollPane.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/layout/components/TagsView/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/layout/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-vue-app/src/views/home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-vue-app/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-vue-app/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-vue-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-vue-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-vue-app/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/my-vue-app/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-vue-app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/my-vue-app/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-vue-app/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-vue-app/src/components/comp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/my-vue-app/src/components/comp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-vue-app/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-vue-app/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-vue-app/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-vue-app/src/router/index.ts" afterDir="false" />
+    <list default="true" id="817ff557-8831-4111-8170-2517231242b6" name="Changes" comment="update Vue ecosystem">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +33,10 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2JChVZatuehbVhRDyDeBalBJAeo" />
   <component name="ProjectViewState">
     <option name="foldersAlwaysOnTop" value="false" />
@@ -69,7 +49,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/sincerecsl/source/code/Vue.js-Study/my-vue-app/src/layout&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/sincerecsl/source/code/Vue.js-Study&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -78,12 +58,13 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/sincerecsl/source/code/Vue.js-Study/my-vue-app/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/sincerecsl/source/code/Vue.js-Study/Vue3-WebSocket-demo/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/my-vue-app/src/layout" />
       <recent name="$PROJECT_DIR$/my-vue-app/src/assets/CSS" />
     </key>
@@ -103,6 +84,13 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17011.90" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -119,6 +107,9 @@
       <workItem from="1671692849093" duration="732000" />
       <workItem from="1672298508926" duration="4508000" />
       <workItem from="1672725573019" duration="652000" />
+      <workItem from="1693623392559" duration="2012000" />
+      <workItem from="1707288003344" duration="1570000" />
+      <workItem from="1726357558501" duration="188000" />
     </task>
     <task id="LOCAL-00001" summary="update gitignore">
       <created>1671589838208</created>
@@ -155,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1671609724123</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update Vue ecosystem">
+      <option name="closed" value="true" />
+      <created>1707288842825</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707288842825</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +174,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update gitignore" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update Vue ecosystem" />
+    <option name="LAST_COMMIT_MESSAGE" value="update Vue ecosystem" />
   </component>
 </project>
