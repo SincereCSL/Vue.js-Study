@@ -1,11 +1,13 @@
-name: Deploy to GitHub Pages
+name: Deploy 233park-web to GitHub Pages
 
 on:
   push:
     branches:
       - master
+    paths:
+      - '233park-web/**'  # 只有当233park-web目录有变化时才触发
   
-  workflow_dispatch:
+  workflow_dispatch:  # 允许手动触发
 
 # 设置权限
 permissions:
@@ -18,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ github.repository_owner }}.github.io/Vue.js-Study/233park-web/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,9 +32,6 @@ jobs:
           cache: 'npm'
           cache-dependency-path: './233park-web/package-lock.json'
       
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
       - name: Install dependencies 
         working-directory: ./233park-web
         run: npm install
@@ -41,24 +40,31 @@ jobs:
         working-directory: ./233park-web
         run: npm run build
         
-      - name: Create .nojekyll file
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      # 确保dist目录有.nojekyll文件和404.html用于SPA
+      - name: Setup SPA routing
+        working-directory: ./233park-web/dist
         run: |
           touch .nojekyll
-          
-      # 复制构建文件到根目录
-      - name: Copy build files to root
-        run: |
-          cp -r ./233park-web/dist/* .
-          cp ./233park-web/dist/.nojekyll .
-          
-      - name: Create 404.html for SPA routing
-        run: |
           cp index.html 404.html
-          
+          # 添加SPA路由重定向脚本到404.html
+          sed -i 's/<\/head>/<script>\
+          (function(){\
+            var l = window.location;\
+            l.replace(\
+              l.protocol + "\/\/" + l.hostname + (l.port ? ":" + l.port : "") +\
+              "\/Vue.js-Study\/233park-web\/" +\
+              l.pathname.split("\/").slice(3).join("\/")\
+            );\
+          })();\
+          <\/script><\/head>/g' 404.html
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: ./233park-web/dist
           
       - name: Deploy to GitHub Pages
         id: deployment
