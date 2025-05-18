@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename)
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/Vue.js-Study/233park-web/',
+  base: '/Vue.js-Study/',
   plugins: [
     vue(),
     viteMockServe({

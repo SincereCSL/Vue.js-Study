@@ -2,7 +2,7 @@
   "name": "233park-web",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://sincerecsl.github.io/Vue.js-Study/233park-web/",
+  "homepage": "https://sincerecsl.github.io/Vue.js-Study/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
