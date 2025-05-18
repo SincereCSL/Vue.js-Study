@@ -31,8 +31,8 @@ jobs:
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      
-      - name: Install dependencies 
+        
+      - name: Install dependencies
         working-directory: ./233park-web
         run: npm install
         
@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./233park-web/dist
-          
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4 

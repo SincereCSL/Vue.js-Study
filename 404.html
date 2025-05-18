@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/Vue.js-Study/233park-web/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue</title>
+    <script>
+      // 单页应用重定向处理
+      // GitHub Pages在收到404时会找到并提供此文件
+      // 这个脚本将分析当前URL并重定向到正确的基础URL
+      (function(){
+        // 当前路径
+        var pathSegmentsToKeep = 0;
+        var l = window.location;
+        
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          '/Vue.js-Study/233park-web/' +
+          l.pathname.split('/').slice(pathSegmentsToKeep + 1).join('/') +
+          l.search
+        );
+      })();
+    </script>
+    <script type="module" crossorigin src="/Vue.js-Study/233park-web/assets/index-CT5kgbCG.js"></script>
+    <link rel="stylesheet" crossorigin href="/Vue.js-Study/233park-web/assets/index-CcRraY2h.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html> 

@@ -43,17 +43,22 @@ jobs:
         
       - name: Create .nojekyll file
         run: |
-          touch ./233park-web/dist/.nojekyll
+          touch .nojekyll
           
-      - name: Create 404.html for SPA handling
-        working-directory: ./233park-web/dist
+      # 复制构建文件到根目录
+      - name: Copy build files to root
+        run: |
+          cp -r ./233park-web/dist/* .
+          cp ./233park-web/dist/.nojekyll .
+          
+      - name: Create 404.html for SPA routing
         run: |
           cp index.html 404.html
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./233park-web/dist
+          path: .
           
       - name: Deploy to GitHub Pages
         id: deployment
