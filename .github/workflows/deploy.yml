@@ -42,8 +42,14 @@ jobs:
         run: npm run build
         
       - name: Create .nojekyll file
-        run: touch ./233park-web/dist/.nojekyll
-        
+        run: |
+          touch ./233park-web/dist/.nojekyll
+          
+      - name: Create 404.html for SPA handling
+        working-directory: ./233park-web/dist
+        run: |
+          cp index.html 404.html
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
