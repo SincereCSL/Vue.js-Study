@@ -47,26 +47,26 @@ jobs:
         working-directory: ./233park-web/dist
         run: |
           touch .nojekyll
-          cat > 404.html <<'EOF'
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/Vue.js-Study/233park-web/" />
-    <script>
-      var redirect = sessionStorage.redirect;
-      delete sessionStorage.redirect;
-      if (redirect && redirect !== location.href) {
-        history.replaceState(null, null, redirect);
-      }
-    </script>
-  </head>
-  <body></body>
-</html>
-EOF
+          echo '<!DOCTYPE html>
+          <html>
+            <head>
+              <meta http-equiv="refresh" content="0;url=/Vue.js-Study/233park-web/" />
+              <script>
+                var redirect = sessionStorage.redirect;
+                delete sessionStorage.redirect;
+                if (redirect && redirect !== location.href) {
+                  history.replaceState(null, null, redirect);
+                }
+              </script>
+            </head>
+            <body></body>
+          </html>' > 404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./233park-web/dist
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4 
