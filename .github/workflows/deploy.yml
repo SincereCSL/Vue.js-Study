@@ -28,25 +28,26 @@ jobs:
         with:
           node-version: "18"
           cache: 'npm'
+          cache-dependency-path: './233park-web/package-lock.json'
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
       - name: Install dependencies 
-        working-directory: ./
+        working-directory: ./233park-web
         run: npm install
         
       - name: Build
-        working-directory: ./
+        working-directory: ./233park-web
         run: npm run build
         
       - name: Create .nojekyll file
-        run: touch ./dist/.nojekyll
+        run: touch ./233park-web/dist/.nojekyll
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./233park-web/dist
           
       - name: Deploy to GitHub Pages
         id: deployment
