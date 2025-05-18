@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - master
   
   workflow_dispatch:
 
@@ -33,15 +33,17 @@ jobs:
         uses: actions/configure-pages@v4
       
       - name: Install dependencies 
+        working-directory: ./233park-web
         run: npm install
         
       - name: Build
+        working-directory: ./233park-web
         run: npm run build
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./233park-web/dist
           
       - name: Deploy to GitHub Pages
         id: deployment
