@@ -8,75 +8,47 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            text-align: center;
-            padding: 50px;
-            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
             background-color: #f5f5f5;
         }
         .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
+            text-align: center;
+            padding: 2rem;
+            background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            color: #42b983;
+            color: #333;
         }
         p {
-            margin: 20px 0;
-            line-height: 1.6;
+            color: #666;
+            margin-bottom: 1.5rem;
         }
         a {
-            color: #42b983;
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.8rem 1.5rem;
             text-decoration: none;
+            border-radius: 4px;
             font-weight: bold;
+            transition: background-color 0.3s;
         }
         a:hover {
-            text-decoration: underline;
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>233乐园项目</h1>
-        <p>正在跳转到233乐园项目，如果您没有被自动重定向，请<a href="./233park-web/">点击这里</a>。</p>
-        <p><small>如果链接无效，请访问 <a href="https://sincerecsl.github.io/Vue.js-Study/233park-web/">完整URL</a></small></p>
+        <p>正在重定向到233乐园项目，如果没有自动跳转，请点击下方按钮</p>
+        <a href="./233park-web/">前往233乐园</a>
     </div>
-    <script>
-        // 如果当前不是部署域名的根目录，则跳转到完整URL
-        if (window.location.hostname === 'sincerecsl.github.io') {
-            const targetPath = '/Vue.js-Study/233park-web/';
-            // 如果当前路径已经是目标路径，则不进行跳转
-            if (!window.location.pathname.endsWith(targetPath) && 
-                !window.location.pathname.endsWith(targetPath + 'index.html')) {
-                window.location.href = targetPath;
-            }
-        } else {
-            // 本地开发环境或其他情况
-            const paths = [
-                './233park-web/',
-                './233park-web/index.html'
-            ];
-            
-            // 检查页面是否存在，若存在则跳转
-            async function checkAndRedirect() {
-                for (const path of paths) {
-                    try {
-                        const response = await fetch(path, { method: 'HEAD' });
-                        if (response.ok) {
-                            window.location.href = path;
-                            return;
-                        }
-                    } catch (e) {
-                        console.log(`Path ${path} not available`);
-                    }
-                }
-            }
-            
-            checkAndRedirect();
-        }
-    </script>
 </body>
 </html> 

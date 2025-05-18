@@ -1,4 +1,4 @@
-name: Deploy 233Park Web
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   
   workflow_dispatch:
 
-# 显式设置权限
+# 设置权限
 permissions:
   contents: write
   pages: write
@@ -28,25 +28,25 @@ jobs:
         with:
           node-version: "18"
           cache: 'npm'
-          cache-dependency-path: '233park-web/package-lock.json'
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
       - name: Install dependencies 
-        run: cd 233park-web && npm install
+        working-directory: ./
+        run: npm install
         
       - name: Build
-        run: cd 233park-web && npm run build
+        working-directory: ./
+        run: npm run build
         
-      - name: Copy .nojekyll file
-        run: |
-          touch ./233park-web/dist/.nojekyll
+      - name: Create .nojekyll file
+        run: touch ./dist/.nojekyll
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./233park-web/dist
+          path: ./dist
           
       - name: Deploy to GitHub Pages
         id: deployment
