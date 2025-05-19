@@ -63,22 +63,14 @@ cp -r 233park-web/dist/* dist_deploy/233park-web/
 cp redirect.html dist_deploy/index.html
 touch dist_deploy/.nojekyll
 
-# 在部署目录创建临时git仓库
-echo -e "${BLUE}5. 准备Git仓库...${NC}"
-cd dist_deploy
-git init
-git config user.name "GitHub Manual Deploy"
-git config user.email "manual-deploy@github.com"
-git add .
-git commit -m "手动部署修复版网站 $(date +'%Y-%m-%d %H:%M:%S')"
+# 创建具有正确结构的示例文件
+echo -e "${BLUE}5. 创建示例文件...${NC}"
+cat > dist_deploy/233park-web/manual-deploy.txt << EOF
+这是一个手动部署的示例文件，用于确认部署结构正确。
+部署时间: $(date +'%Y-%m-%d %H:%M:%S')
+EOF
 
-# 推送到gh-pages分支
-echo -e "${BLUE}6. 推送到gh-pages分支...${NC}"
-git push -f git@github.com:SincereCSL/Vue.js-Study.git HEAD:gh-pages
-
-# 清理
-echo -e "${BLUE}7. 清理临时文件...${NC}"
-cd ..
-rm -rf dist_deploy
-
-echo -e "${GREEN}部署完成！访问 https://sincerecsl.github.io/Vue.js-Study/ 查看网站${NC}" 
+echo -e "${GREEN}部署文件已准备完成！${NC}"
+echo -e "${YELLOW}请将dist_deploy目录的内容手动上传到GitHub仓库的gh-pages分支${NC}"
+echo -e "${YELLOW}或者使用GitHub网页界面上传这些文件${NC}"
+echo -e "${GREEN}部署后访问: https://sincerecsl.github.io/Vue.js-Study/ 查看网站${NC}" 
