@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: 检出代码
         uses: actions/checkout@v3.5.3
@@ -24,33 +26,53 @@ jobs:
         run: |
           npm ci
           npm run build
+          # 确保资源引用正确
+          sed -i 's|/Vue.js-Study/233park-web/|./|g' dist/index.html
       
-      - name: 设置部署环境
+      - name: 准备部署文件
         run: |
-          # 创建部署目录
-          mkdir -p deploy_temp/233park-web
-          # 复制构建后的文件
-          cp -r 233park-web/dist/* deploy_temp/233park-web/
-          # 如果有vite.svg就复制，没有就创建空文件
-          if [ -f "233park-web/vite.svg" ]; then
-            cp 233park-web/vite.svg deploy_temp/233park-web/
-          elif [ -f "233park-web/dist/vite.svg" ]; then
-            cp 233park-web/dist/vite.svg deploy_temp/233park-web/
-          else
-            touch deploy_temp/233park-web/favicon.ico
-          fi
-          # 添加.nojekyll文件
-          touch deploy_temp/233park-web/.nojekyll
-          # 复制根目录文件
-          cp index.html deploy_temp/
-          if [ -f "404.html" ]; then
-            cp 404.html deploy_temp/
-          fi
-          touch deploy_temp/.nojekyll
+          # 创建根目录重定向页面
+          cat > redirect.html << EOF
+          <!DOCTYPE html>
+          <html lang="zh-CN">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>233Park - Vue.js项目</title>
+              <meta http-equiv="refresh" content="0; url=./233park-web/">
+              <style>
+                  body {
+                      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+                      text-align: center;
+                      padding: 40px;
+                      max-width: 600px;
+                      margin: 0 auto;
+                      line-height: 1.6;
+                  }
+                  h1 { color: #333; }
+                  a {
+                      color: #42b983;
+                      text-decoration: none;
+                      font-weight: bold;
+                  }
+              </style>
+          </head>
+          <body>
+              <h1>233Park - Vue.js项目</h1>
+              <p>正在跳转到项目页面，如果没有自动跳转，请<a href="./233park-web/">点击这里</a>。</p>
+          </body>
+          </html>
+          EOF
 
+          # 创建部署目录结构
+          mkdir -p dist/233park-web
+          cp -r 233park-web/dist/* dist/233park-web/
+          cp redirect.html dist/index.html
+          touch dist/.nojekyll
+          
       - name: 部署到GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./deploy_temp
+          publish_dir: ./dist
           force_orphan: true 
