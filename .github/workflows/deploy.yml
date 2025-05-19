@@ -32,11 +32,18 @@ jobs:
 
       - name: 准备部署文件
         run: |
-          cp -r 233park-web/dist/* .
-          touch .nojekyll
+          # 创建临时部署目录
+          mkdir -p deploy_temp
+          # 复制项目文件到临时目录
+          cp -r 233park-web/dist/* deploy_temp/
+          cp 233park-web/vite.svg deploy_temp/
+          touch deploy_temp/.nojekyll
+          # 复制根目录的重定向文件
+          cp index.html deploy_temp/
       
       - name: 部署到GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
           branch: gh-pages
-          folder: . 
+          folder: deploy_temp
+          clean: true 
