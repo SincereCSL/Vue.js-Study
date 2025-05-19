@@ -1,72 +1,57 @@
-name: Deploy 233park-web to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - master
-    paths:
-      - '233park-web/**'  # 只有当233park-web目录有变化时才触发
-  
-  workflow_dispatch:  # 允许手动触发
+    branches: [ master, main ]
+  workflow_dispatch:
 
-# 设置权限
 permissions:
   contents: write
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: https://${{ github.repository_owner }}.github.io/Vue.js-Study/233park-web/
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: '18'
           cache: 'npm'
-          cache-dependency-path: './233park-web/package-lock.json'
+          cache-dependency-path: '233park-web/package-lock.json'
       
-      - name: Install dependencies 
-        working-directory: ./233park-web
-        run: npm install
-        
+      - name: Install Dependencies
+        working-directory: 233park-web
+        run: npm ci
+
       - name: Build
-        working-directory: ./233park-web
+        working-directory: 233park-web
         run: npm run build
-        
+
       - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      - name: Setup SPA routing
-        working-directory: ./233park-web/dist
+        uses: actions/configure-pages@v3
+
+      - name: Ensure .nojekyll exists
         run: |
           touch .nojekyll
-          echo '<!DOCTYPE html>
-          <html>
-            <head>
-              <meta http-equiv="refresh" content="0;url=/Vue.js-Study/233park-web/" />
-              <script>
-                var redirect = sessionStorage.redirect;
-                delete sessionStorage.redirect;
-                if (redirect && redirect !== location.href) {
-                  history.replaceState(null, null, redirect);
-                }
-              </script>
-            </head>
-            <body></body>
-          </html>' > 404.html
+          touch 233park-web/dist/.nojekyll
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
-          path: ./233park-web/dist
-          
+          path: '.'
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v2 
