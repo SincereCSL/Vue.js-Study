@@ -1,0 +1,17 @@
+# 233park-web 部署清单
+
+## 核心文件
+- index.html (根目录重定向)
+- 233park-web/dist/index.html
+- 233park-web/dist/.nojekyll
+- 233park-web/dist/vite.svg
+
+## CSS资源
+- 233park-web/dist/assets/index-CcRraY2h.css
+
+## JS资源
+- 233park-web/dist/assets/index-CT5kgbCG.js
+
+## 部署后的URL
+https://sincerecsl.github.io/Vue.js-Study/
+https://sincerecsl.github.io/Vue.js-Study/233park-web/ 
