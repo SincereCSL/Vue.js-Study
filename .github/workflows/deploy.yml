@@ -5,9 +5,6 @@ on:
     branches: [ master, main ]
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -22,28 +19,38 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '233park-web/package-lock.json'
       
-      - name: 安装依赖
+      - name: 安装依赖和构建
         working-directory: 233park-web
-        run: npm ci
-
-      - name: 构建项目
-        working-directory: 233park-web
-        run: npm run build
-
-      - name: 准备部署文件
         run: |
-          # 创建临时部署目录
-          mkdir -p deploy_temp
-          # 复制项目文件到临时目录
-          cp -r 233park-web/dist/* deploy_temp/
-          cp 233park-web/vite.svg deploy_temp/
-          touch deploy_temp/.nojekyll
-          # 复制根目录的重定向文件
-          cp index.html deploy_temp/
+          npm ci
+          npm run build
       
+      - name: 设置部署环境
+        run: |
+          # 创建部署目录
+          mkdir -p deploy_temp/233park-web
+          # 复制构建后的文件
+          cp -r 233park-web/dist/* deploy_temp/233park-web/
+          # 如果有vite.svg就复制，没有就创建空文件
+          if [ -f "233park-web/vite.svg" ]; then
+            cp 233park-web/vite.svg deploy_temp/233park-web/
+          elif [ -f "233park-web/dist/vite.svg" ]; then
+            cp 233park-web/dist/vite.svg deploy_temp/233park-web/
+          else
+            touch deploy_temp/233park-web/favicon.ico
+          fi
+          # 添加.nojekyll文件
+          touch deploy_temp/233park-web/.nojekyll
+          # 复制根目录文件
+          cp index.html deploy_temp/
+          if [ -f "404.html" ]; then
+            cp 404.html deploy_temp/
+          fi
+          touch deploy_temp/.nojekyll
+
       - name: 部署到GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          folder: deploy_temp
-          clean: true 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy_temp
+          force_orphan: true 
