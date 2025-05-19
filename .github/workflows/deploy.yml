@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: 部署到GitHub Pages
 
 on:
   push:
@@ -7,51 +7,36 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
+      - name: 检出代码
         uses: actions/checkout@v3.5.3
 
-      - name: Setup Node.js
+      - name: 设置Node.js
         uses: actions/setup-node@v3.8.1
         with:
           node-version: '18'
           cache: 'npm'
           cache-dependency-path: '233park-web/package-lock.json'
       
-      - name: Install Dependencies
+      - name: 安装依赖
         working-directory: 233park-web
         run: npm ci
 
-      - name: Build
+      - name: 构建项目
         working-directory: 233park-web
         run: npm run build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v3.0.6
-
-      - name: Ensure .nojekyll exists
+      - name: 准备部署文件
         run: |
+          cp -r 233park-web/dist/* .
           touch .nojekyll
-          touch 233park-web/dist/.nojekyll
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1.0.8
+      
+      - name: 部署到GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
-          path: '.'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1.2.9 
+          branch: gh-pages
+          folder: . 
