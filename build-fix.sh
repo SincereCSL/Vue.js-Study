@@ -74,7 +74,7 @@ git commit -m "手动部署修复版网站 $(date +'%Y-%m-%d %H:%M:%S')"
 
 # 推送到gh-pages分支
 echo -e "${BLUE}6. 推送到gh-pages分支...${NC}"
-git push -f git@github.com:SincereCSL/Vue.js-Study.git master:gh-pages
+git push -f git@github.com:SincereCSL/Vue.js-Study.git HEAD:gh-pages
 
 # 清理
 echo -e "${BLUE}7. 清理临时文件...${NC}"
