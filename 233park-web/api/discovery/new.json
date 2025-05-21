@@ -1,0 +1,72 @@
+{
+  "code": 0,
+  "data": {
+    "hasMore": true,
+    "list": [
+      {
+        "id": 1,
+        "title": "最新科技：可折叠智能手表发布",
+        "author": "科技前沿",
+        "authorAvatar": "https://picsum.photos/50/50?random=301",
+        "likes": 89,
+        "cover": "https://picsum.photos/400/200?random=301",
+        "type": "image",
+        "tag": "新品"
+      },
+      {
+        "id": 2,
+        "title": "全新虚拟现实游戏体验：无线VR设备",
+        "author": "未来玩家",
+        "authorAvatar": "https://picsum.photos/50/50?random=302",
+        "likes": 156,
+        "cover": "https://picsum.photos/400/200?random=302",
+        "type": "video",
+        "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+        "tag": "新品"
+      },
+      {
+        "id": 3,
+        "title": "智能家居新品：声控调光系统",
+        "author": "数字生活",
+        "authorAvatar": "https://picsum.photos/50/50?random=303",
+        "likes": 72,
+        "cover": "https://picsum.photos/400/200?random=303",
+        "type": "image",
+        "tag": "新品"
+      },
+      {
+        "id": 4,
+        "title": "创新办公工具：AR投影键盘",
+        "author": "办公革新",
+        "authorAvatar": "https://picsum.photos/50/50?random=304",
+        "likes": 98,
+        "cover": "https://picsum.photos/400/200?random=304",
+        "type": "video",
+        "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+        "tag": "新品"
+      },
+      {
+        "id": 5,
+        "title": "新一代可穿戴设备：智能服装",
+        "author": "时尚科技",
+        "authorAvatar": "https://picsum.photos/50/50?random=305",
+        "likes": 123,
+        "cover": "https://picsum.photos/400/200?random=305",
+        "type": "image",
+        "tag": "新品"
+      },
+      {
+        "id": 6,
+        "title": "环保创新：可降解智能包装",
+        "author": "绿色未来",
+        "authorAvatar": "https://picsum.photos/50/50?random=306",
+        "likes": 64,
+        "cover": "https://picsum.photos/400/200?random=306",
+        "type": "video",
+        "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+        "tag": "新品"
+      }
+    ]
+  },
+  "message": "success"
+}
