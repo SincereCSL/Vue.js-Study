@@ -1,15 +1,23 @@
 import axios from 'axios'
 import { showToast } from 'vant'
 
+// 判断是否在GitHub Pages环境
+const isGitHubPages = window.location.href.includes('github.io')
+
 // 创建axios实例
 const service = axios.create({
-  baseURL: '/',
+  baseURL: isGitHubPages ? '/Vue.js-Study/233park-web' : '/',
   timeout: 10000
 })
 
 // 请求拦截器
 service.interceptors.request.use(
   config => {
+    // GitHub Pages环境下重写请求路径，使用静态JSON
+    if (isGitHubPages && config.url === '/api/discovery') {
+      const type = config.params.type || 'recommend'
+      config.url = `/api/discovery/${type}.json`
+    }
     return config
   },
   error => {
@@ -45,4 +53,4 @@ service.interceptors.response.use(
   }
 )
 
-export default service 
+export default service
