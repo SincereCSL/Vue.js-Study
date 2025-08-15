@@ -388,3 +388,15 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.05);
 }
 </style>
+[
+{
+  bsCityId:'',
+  bsDistrictId:'',
+  bsProjectNeTypeId:'',
+},
+{
+bsCityId:'',
+bsDistrictId:'',
+bsProjectNeTypeId:'',
+},
+]
