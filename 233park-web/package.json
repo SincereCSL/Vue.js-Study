@@ -20,6 +20,6 @@
     "amfe-flexible": "^2.2.1",
     "gh-pages": "^6.3.0",
     "postcss-pxtorem": "^6.1.0",
-    "vite": "^6.3.5"
+    "vite": "^6.4.1"
   }
 }
