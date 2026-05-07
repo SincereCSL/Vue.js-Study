@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.9.0",
+    "axios": "^1.15.2",
     "mockjs": "^1.1.0",
     "vant": "^4.9.19",
     "vite-plugin-mock": "^3.0.2",
